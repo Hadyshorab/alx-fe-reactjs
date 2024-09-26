@@ -1,22 +1,14 @@
-import WelcomeMessage from './components/WelcomeMessage'
-import Header from './components/Header'
-import MainContent from './components/MainContent'
-import Footer from './components/Footer'
-import UserProfile from './components/UserProfile'
-import Counter from './components/Counter'
+// src/App.jsx
+import React from 'react';
+import TodoList from './components/TodoList';
 
-
-function App() {
+const App = () => {
   return (
-    <div style={{display: "flex", flexDirection: "column", gap: "20px"}}>
-      <Header />
-      <MainContent />
-      <WelcomeMessage />
-      <UserProfile name="Alice" age="25" bio="Loves hiking and photography"/>
-      <Counter />
-      <Footer />
+    <div>
+      <h1>Todo App</h1>
+      <TodoList />
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;
