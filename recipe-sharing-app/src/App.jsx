@@ -1,22 +1,27 @@
-import WelcomeMessage from './components/WelcomeMessage'
-import Header from './components/Header'
-import MainContent from './components/MainContent'
-import Footer from './components/Footer'
-import UserProfile from './components/UserProfile'
-import Counter from './components/Counter'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import RecipeList from './components/RecipeList';
+import AddRecipeForm from './components/AddRecipeForm';
+import RecipeDetails from './components/RecipeDetails';
+import SearchBar from './components/SearchBar';
+import FavoritesList from './components/FavoritesList';
+import RecommendationsList from './components/RecommendationsList';
 
 
-function App() {
+const App = () => {
   return (
-    <div style={{display: "flex", flexDirection: "column", gap: "20px"}}>
-      <Header />
-      <MainContent />
-      <WelcomeMessage />
-      <UserProfile name="Alice" age="25" bio="Loves hiking and photography"/>
-      <Counter />
-      <Footer />
-    </div>
-  )
-}
+    <Router>
+      <div style={{ padding: '20px' }}>
+        <SearchBar />
+        <AddRecipeForm />
+        <FavoritesList />
+        <RecommendationsList />
+        <RecipeList />
+        <Routes>
+          <Route path="/recipe/:id" element={<RecipeDetails />} />
+        </Routes>
+      </div>
+    </Router>
+  );
+};
 
-export default App
+export default App;
