@@ -1,22 +1,15 @@
-import WelcomeMessage from './components/WelcomeMessage'
-import Header from './components/Header'
-import MainContent from './components/MainContent'
-import Footer from './components/Footer'
-import UserProfile from './components/UserProfile'
-import Counter from './components/Counter'
+import { QueryClientProvider, QueryClient } from "react-query";
+import PostsComponent from "./components/PostsComponent";
+import { ReactQueryDevtools } from "react-query/devtools";
 
+const queryClient = new QueryClient();
 
 function App() {
   return (
-    <div style={{display: "flex", flexDirection: "column", gap: "20px"}}>
-      <Header />
-      <MainContent />
-      <WelcomeMessage />
-      <UserProfile name="Alice" age="25" bio="Loves hiking and photography"/>
-      <Counter />
-      <Footer />
-    </div>
-  )
+    <QueryClientProvider client={queryClient}>
+      <PostsComponent />
+      {<ReactQueryDevtools initialIsOpen={false} />}
+    </QueryClientProvider>
+  );
 }
-
-export default App
+export default App;
